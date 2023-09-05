@@ -3,9 +3,10 @@
 import os
 import csv
 
-# Creating paths
-csvpath = os.path.join("C://Users/alaa3/Desktop/Python-Challenge/PyBank","Resources", "budget_data.csv")
-output_path = os.path.join("C://Users/alaa3/Desktop/Python-Challenge/PyBank","Analysis","budget_data_analysis.txt")
+# Creating paths: Note to whoever want to try this change the path to yours.
+my_path = "C://Users/alaa3/Desktop/Python-Challenge/PyBank"
+csvpath = os.path.join(my_path, "Resources", "budget_data.csv")
+output_path = os.path.join(my_path, "Analysis", "budget_data_analysis.txt")
 
 # Initializing the values
 total_amount = 0
@@ -25,7 +26,7 @@ with open(csvpath, encoding='UTF-8') as csvfile:
     first_row = next(csvreader)       # This will skip the 1st actual row and store in the given variable
     total_months += 1                 # adding 1 to the length of months b/c we skipped the 1st actual row.
     total_amount += int(first_row[1]) # will change the initial amount from 0 to the 1st price occurance.
-    prev_amount = int(first_row[1])   # storing the first price in this variable
+    prev_amount = int(first_row[1])   # storing the first amount in this variable
 
     for row in csvreader:             # looping through the rows of the sheet.
 
@@ -37,7 +38,7 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 
 #The changes in "Profit/Losses" over the entire period, and then the average of those changes
 #the average of all b2# - b1#
-        current_amount = int(row[1])
+        current_amount = int(row[1]) # To make it easy to read
         changes = current_amount - prev_amount
         price_changes += changes
         average_change = round(price_changes / (total_months - 1), 2)        
@@ -46,13 +47,19 @@ with open(csvpath, encoding='UTF-8') as csvfile:
         if changes > greatest_increase:
             greatest_increase = changes
             greatest_increase_month = row[0]
+        # so we could switch the order of the date when printing
             monthDAY_greatest_increase = greatest_increase_month.split("-")
+            greatest_IncreaseDAY = monthDAY_greatest_increase[0]
+            greatest_IncreaseMONTH = monthDAY_greatest_increase[1]
 
 #The greatest decrease in profits (date and amount) over the entire period
         elif changes < greatest_decrease:
             greatest_decrease = changes
             greatest_decrease_month = row[0]
+        # so we could switch the order of the date when printing
             monthDAY_greatest_decrease = greatest_decrease_month.split("-")
+            greatest_DecreaseDAY = monthDAY_greatest_decrease[0]
+            greatest_DecreaseMONTH = monthDAY_greatest_decrease[1]
         prev_amount = current_amount    
 
 
@@ -64,8 +71,8 @@ budget_data_results = (
  f'\n Total Months: {total_months}'
  f'\n Total: ${total_amount}'
  f'\n Average Change: ${average_change}'
- f'\n Greatest Increase in Profits: {monthDAY_greatest_increase[1]}-{monthDAY_greatest_increase[0]} $({greatest_increase})'
- f'\n Greatest Decrease in Profits: {monthDAY_greatest_decrease[1]}-{monthDAY_greatest_decrease[0]} $({greatest_decrease})'
+ f'\n Greatest Increase in Profits: {greatest_IncreaseMONTH}-{greatest_IncreaseDAY} $({greatest_increase})'
+ f'\n Greatest Decrease in Profits: {greatest_DecreaseMONTH}-{greatest_DecreaseDAY} $({greatest_decrease})'
 )
 
 print(budget_data_results)
