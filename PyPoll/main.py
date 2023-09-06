@@ -1,7 +1,7 @@
 import os
 import csv
 
-# To whoever going try this, change the file path to yours!
+# To whoever going try this, change the file path to yours.
 my_path = "C://Users/alaa3/Desktop/Python-Challenge/PyPoll"
 csvpath = os.path.join(my_path, "Resources", "election_data.csv")
 output_path = os.path.join(my_path, "Analysis", "election_data_analysis.txt")
@@ -9,7 +9,6 @@ output_path = os.path.join(my_path, "Analysis", "election_data_analysis.txt")
 
 # Creating lists
 candidates_list = []
-
 
 # Initializing the values
 total_votes = 0
@@ -51,10 +50,15 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 # The percentage of votes each candidate won 
     vote_percentage1 = round((vote_count1/total_votes)*100, 3)
     vote_percentage2 = round((vote_count2/total_votes)*100, 3)
-    vote_percentage3 = round((vote_count3/total_votes)*100, 3)
+    vote_percentage3 = round((vote_count3/total_votes)*100, 3)  
 
 
 # The winner of the election based on popular vote
+# Since I know by taking the length of the candidates_list 
+# that I have just 3 candidates, (if elif) statements were easy to do.
+# If I had more candidates, creating a dictionary would be easier
+# and efficient. I will post another way of this code using dictionaries 
+# after this assignment is graded.
     if (vote_count1 > vote_count2) and (vote_count1 > vote_count3):
         winner = candidates_list[0]
     elif (vote_count2 > vote_count1) and (vote_count2 > vote_count3):

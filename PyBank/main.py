@@ -28,16 +28,17 @@ with open(csvpath, encoding='UTF-8') as csvfile:
     total_amount += int(first_row[1]) # will change the initial amount from 0 to the 1st price occurance.
     prev_amount = int(first_row[1])   # storing the first amount in this variable
 
+    
     for row in csvreader:             # looping through the rows of the sheet.
-
 #The total number of months included in the dataset 
         total_months += 1
     
 #The net total amount of "Profit/Losses" over the entire period
-        total_amount += int(row[1])
+        total_amount += int(row[1]) # That is, the sum of current_amount each time 
+                                    # it loops through the rows.
 
 #The changes in "Profit/Losses" over the entire period, and then the average of those changes
-#the average of all b2# - b1#
+#the average of all b2's - b1's#
         current_amount = int(row[1]) # To make it easy to read
         changes = current_amount - prev_amount
         price_changes += changes
@@ -60,19 +61,21 @@ with open(csvpath, encoding='UTF-8') as csvfile:
             monthDAY_greatest_decrease = greatest_decrease_month.split("-")
             greatest_DecreaseDAY = monthDAY_greatest_decrease[0]
             greatest_DecreaseMONTH = monthDAY_greatest_decrease[1]
-        prev_amount = current_amount    
+
+
+        prev_amount = current_amount    # this keeps updating the previous amount
 
 
 # Printing the analysis to the terminal:
 budget_data_results = (
- f' --------------------------------------------------'   # \n inserting new lines
- f'\n Financial Analysis'
+ f' --------------------------------------------------'   
+ f'\n Financial Analysis'                                   # \n inserting new lines
  f'\n -------------------------------------------------- '   
  f'\n Total Months: {total_months}'
  f'\n Total: ${total_amount}'
  f'\n Average Change: ${average_change}'
- f'\n Greatest Increase in Profits: {greatest_IncreaseMONTH}-{greatest_IncreaseDAY} $({greatest_increase})'
- f'\n Greatest Decrease in Profits: {greatest_DecreaseMONTH}-{greatest_DecreaseDAY} $({greatest_decrease})'
+ f'\n Greatest Increase in Profits: {greatest_IncreaseMONTH}-{greatest_IncreaseDAY} (${greatest_increase})'
+ f'\n Greatest Decrease in Profits: {greatest_DecreaseMONTH}-{greatest_DecreaseDAY} (${greatest_decrease})'
 )
 
 print(budget_data_results)
