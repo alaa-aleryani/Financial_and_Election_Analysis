@@ -57,7 +57,7 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 # Since I knew by taking the length of the candidates_list 
 # that I have just 3 candidates, (if elif) statements were what I thought of at first.
 # But if I had more candidates, creating a dictionary would be easier
-# and efficient. I will post another way of this code using dictionaries 
+# and more efficient. I will post another way of this code using dictionaries 
 # after this assignment is graded to avoid distractions :) 
     if (vote_count1 > vote_count2) and (vote_count1 > vote_count3):
         winner = candidates_list[0]
