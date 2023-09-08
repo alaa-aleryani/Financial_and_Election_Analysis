@@ -54,11 +54,11 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 
 
 # The winner of the election based on popular vote
-# Since I know by taking the length of the candidates_list 
-# that I have just 3 candidates, (if elif) statements were easy to do.
-# If I had more candidates, creating a dictionary would be easier
+# Since I knew by taking the length of the candidates_list 
+# that I have just 3 candidates, (if elif) statements were what I thought of at first.
+# But if I had more candidates, creating a dictionary would be easier
 # and efficient. I will post another way of this code using dictionaries 
-# after this assignment is graded.
+# after this assignment is graded to avoid distractions :) 
     if (vote_count1 > vote_count2) and (vote_count1 > vote_count3):
         winner = candidates_list[0]
     elif (vote_count2 > vote_count1) and (vote_count2 > vote_count3):
