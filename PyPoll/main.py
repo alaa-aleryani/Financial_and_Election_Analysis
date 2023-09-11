@@ -57,7 +57,7 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 # Since I knew by taking the length of the candidates_list 
 # that I have just 3 candidates, (if elif) statements were easy to do.
 # But if I had more candidates, creating a dictionary would be easier
-# and more efficient, which is shown in "poll_script_2"
+# and more efficient, which is shown in "poll_script_2.py"
     if (vote_count1 > vote_count2) and (vote_count1 > vote_count3):
         winner = candidates_list[0]
     elif (vote_count2 > vote_count1) and (vote_count2 > vote_count3):
