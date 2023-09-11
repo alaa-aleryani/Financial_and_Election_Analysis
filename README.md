@@ -17,3 +17,5 @@ We were given a set of poll data called election_data.csv, which is composed of 
 3) The percentage of votes each candidate won
 4) The total number of votes each candidate won
 5) The winner of the election based on popular vote.
+
+Note: PyPoll has two scripts - ("main.py" and "poll_script_2.py"), both works perfectly. It is just that they have kind of different logic. 
