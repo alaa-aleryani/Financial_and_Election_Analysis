@@ -23,7 +23,6 @@ We were given a set of poll data called election_data.csv, which is composed of 
 4) The total number of votes each candidate won
 5) The winner of the election based on popular vote.
 
-![alt text]([https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.independent.co.uk%2Fnews%2Fuk%2Fpolitics%2Fgeneral-election-how-to-vote-find-polling-station-nearest-opening-times-a9242706.html&psig=AOvVaw1r-FTzYlPMdoM7FfJxW7tP&ust=1696442972155000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMDXn9i82oEDFQAAAAAdAAAAABAE])
 # Note
 
 Note: PyPoll has two scripts - ("main.py" and "poll_script_2.py"), both works perfectly. It is just that they have kind of different logic. 
