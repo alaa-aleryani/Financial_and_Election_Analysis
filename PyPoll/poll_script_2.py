@@ -58,7 +58,7 @@ with open(csvpath, encoding='UTF-8') as csvfile:
 
 # Printing the analysis to the terminal:
 election_data_results = (
- f' Elction Results'
+ f' Election Results'
  f'\n -------------------------------------------------- '   
  f'\n Total Votes: {total_votes}'
  f'\n -------------------------------------------------- '
